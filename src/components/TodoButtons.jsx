@@ -86,11 +86,11 @@ export const CompletedButton = ({ todo, isEditable }) => {
   return (
     <button
       className={`flex justify-center items-center ${
-        todo.completed
-          ? `border-emerald-400 hover:border-emerald-300`
-          : `border-yellow-400  hover:border-yellow-300`
-      } ${
-        isEditable && `border-neutral-700 hover:border-neutral-700`
+        !isEditable
+          ? todo.completed
+            ? `border-emerald-400 hover:border-emerald-300`
+            : `border-yellow-400  hover:border-yellow-300`
+          : `border-neutral-700 hover:border-neutral-700`
       } h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent ${
         !isEditable && `hover:bg-neutral-700`
       }`}
