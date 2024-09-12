@@ -10,7 +10,7 @@ import {
 
 import "./todo.css";
 
-function Todo_clone({ todo }) {
+function Todo({ todo }) {
   const [isEditable, setIsEditable] = useState(false);
   const [input, setInput] = useState(todo.task);
 
@@ -53,20 +53,24 @@ function Todo_clone({ todo }) {
       </div>
 
       <div className="c_completedBtn flex justify-center items-center">
-        <CompletedButton key={todo.id + "deleteButton"} todo={todo} />
+        <CompletedButton
+          key={todo.id + "completedButton"}
+          todo={todo}
+          isEditable={isEditable}
+        />
       </div>
 
       <textarea
         type="text"
+        className={`${todo.completed && `line-through`}`}
         value={input}
         readOnly={!isEditable}
         disabled={todo.completed}
         onChange={(e) => setInput(e.target.value)}
         ref={taskRef}
-        className={`${todo.completed && `line-through`}`}
       />
     </section>
   );
 }
 
-export default Todo_clone;
+export default Todo;

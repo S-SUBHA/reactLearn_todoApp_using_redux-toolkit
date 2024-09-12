@@ -2,16 +2,20 @@
   display: grid;
   grid-template: repeat(6, 1fr) / repeat(6, 1fr);
 
-  border-radius: 4em;
+  border-radius: 5em;
 
   margin: 2em;
 
   height: 400px;
   width: 400px;
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .custom_css > textarea {
-  z-index: -10;
+  z-index: 1;
 
   grid-row: 1/-1;
   grid-column: 1/-1;
@@ -23,19 +27,26 @@
   background: linear-gradient(90deg, #222222, #444444, #666666);
 
   border-radius: 5em;
+  outline: none;
 
-  scrollbar-width: 0;
   resize: none;
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .c_editBtn {
+  z-index: 2;
   grid-area: -1/-1/-2/-2;
 }
 
 .c_deleteBtn {
+  z-index: 2;
   grid-area: 1/-1/2/-2;
 }
 
 .c_completedBtn {
+  z-index: 2;
   grid-area: 1/1/2/2;
 }

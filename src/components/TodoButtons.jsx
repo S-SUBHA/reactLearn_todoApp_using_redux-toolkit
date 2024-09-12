@@ -1,5 +1,11 @@
 import { useDispatch } from "react-redux";
-import { cancelIcon, completedIcon, deleteIcon, editIcon, saveIcon } from "../assets/icons";
+import {
+  cancelIcon,
+  completedIcon,
+  deleteIcon,
+  editIcon,
+  saveIcon,
+} from "../assets/icons";
 import {
   removeTodo,
   toggleCompleted,
@@ -14,7 +20,9 @@ export const EditButton = ({ todo, setIsEditable }) => {
         todo.completed
           ? "border-neutral-500"
           : "border-blue-500 hover:border-blue-400"
-      } h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent hover:bg-neutral-700`}
+      } h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent ${
+        !todo.completed && `hover:bg-neutral-700`
+      }`}
       onClick={() => setIsEditable((prev) => !prev)}
       disabled={todo.completed}
     >
@@ -72,7 +80,7 @@ export const CancelButton = ({ todo, setInput, setIsEditable }) => {
   );
 };
 
-export const CompletedButton = ({ todo }) => {
+export const CompletedButton = ({ todo, isEditable }) => {
   const dispatch = useDispatch();
 
   return (
@@ -81,8 +89,13 @@ export const CompletedButton = ({ todo }) => {
         todo.completed
           ? `border-emerald-400 hover:border-emerald-300`
           : `border-yellow-400  hover:border-yellow-300`
-      } h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent hover:bg-neutral-700`}
+      } ${
+        isEditable && `border-neutral-700 hover:border-neutral-700`
+      } h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent ${
+        !isEditable && `hover:bg-neutral-700`
+      }`}
       onClick={() => dispatch(toggleCompleted(todo.id))}
+      disabled={isEditable}
     >
       {completedIcon}
     </button>
