@@ -1,17 +1,22 @@
 .custom_css {
   display: grid;
-  grid-template: repeat(6, 1fr) / repeat(6, 1fr);
+  grid-template: repeat(2, 1fr) / repeat(6, 1fr);
 
   border-radius: 5em;
 
   margin: 2em;
 
-  height: 400px;
-  width: 400px;
+  height: 140px;
+  width: 420px;
 
   ::-webkit-scrollbar {
     width: 0;
   }
+}
+
+.custom_css > div {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 .custom_css > textarea {
@@ -20,7 +25,9 @@
   grid-row: 1/-1;
   grid-column: 1/-1;
 
-  padding: 4em;
+  padding: 1.5em;
+  padding-left: 4em;
+  padding-right: 4em;
 
   font-size: large;
   color: #fff;
