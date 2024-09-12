@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { cancelIcon, deleteIcon, editIcon, saveIcon } from "../assets/icons";
+import { cancelIcon, completedIcon, deleteIcon, editIcon, saveIcon } from "../assets/icons";
 import {
   removeTodo,
   toggleCompleted,
@@ -84,7 +84,7 @@ export const CompletedButton = ({ todo }) => {
       } h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent hover:bg-neutral-700`}
       onClick={() => dispatch(toggleCompleted(todo.id))}
     >
-      {deleteIcon}
+      {completedIcon}
     </button>
   );
 };

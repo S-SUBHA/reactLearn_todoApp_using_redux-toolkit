@@ -55,3 +55,15 @@ export const addIcon = (
     <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
   </svg>
 );
+
+export const completedIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48px"
+    viewBox="0 -960 960 960"
+    width="48px"
+    fill="#e8eaed"
+  >
+    <path d="M400-304 240-464l56-56 104 104 264-264 56 56-320 320Z" />
+  </svg>
+);
