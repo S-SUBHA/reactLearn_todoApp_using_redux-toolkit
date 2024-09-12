@@ -1,17 +1,20 @@
 import { useDispatch } from "react-redux";
 import { cancelIcon, deleteIcon, editIcon, saveIcon } from "../assets/icons";
-import { removeTodo, updateTodo } from "../features/todo.slice";
+import {
+  removeTodo,
+  toggleCompleted,
+  updateTodo,
+} from "../features/todo.slice";
 
 /* eslint-disable react/prop-types */
 export const EditButton = ({ todo, setIsEditable }) => {
   return (
     <button
-      className={`${
-        todo.completed ? "bg-neutral-500" : "bg-blue-500 hover:bg-blue-400"
-      } flex justify-center items-center rounded-full m-1`}
-      style={{
-        gridColumn: "-3/ -2",
-      }}
+      className={`flex justify-center items-center ${
+        todo.completed
+          ? "border-neutral-500"
+          : "border-blue-500 hover:border-blue-400"
+      } h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent hover:bg-neutral-700`}
       onClick={() => setIsEditable((prev) => !prev)}
       disabled={todo.completed}
     >
@@ -31,10 +34,7 @@ export const SaveButton = ({ todo, input, setIsEditable }) => {
   return (
     <>
       <button
-        className="bg-emerald-400 rounded-full m-1 flex justify-center items-center hover:bg-emerald-300"
-        style={{
-          gridColumn: "-3/ -2",
-        }}
+        className="flex justify-center items-center border-emerald-400  hover:border-emerald-300 h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent hover:bg-neutral-700"
         onClick={() => handleSave()}
       >
         {saveIcon}
@@ -48,10 +48,7 @@ export const DeleteButton = ({ todo }) => {
 
   return (
     <button
-      className="bg-red-600 rounded-full flex justify-center items-center m-1 hover:bg-red-500"
-      style={{
-        gridColumn: "-2/ -1",
-      }}
+      className="flex justify-center items-center border-red-600  hover:border-red-500 h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent hover:bg-neutral-700"
       onClick={() => dispatch(removeTodo(todo.id))}
     >
       {deleteIcon}
@@ -67,13 +64,27 @@ export const CancelButton = ({ todo, setInput, setIsEditable }) => {
 
   return (
     <button
-      className={`bg-blue-500 flex justify-center items-center rounded-full m-1 hover:bg-blue-400`}
-      style={{
-        gridColumn: "-2/ -1",
-      }}
+      className={`flex justify-center items-center border-blue-500 hover:border-blue-400 h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent hover:bg-neutral-700`}
       onClick={() => handleCancel()}
     >
       {cancelIcon}
+    </button>
+  );
+};
+
+export const CompletedButton = ({ todo }) => {
+  const dispatch = useDispatch();
+
+  return (
+    <button
+      className={`flex justify-center items-center ${
+        todo.completed
+          ? `border-emerald-400 hover:border-emerald-300`
+          : `border-yellow-400  hover:border-yellow-300`
+      } h-full w-full rounded-full m-1 border-2 bg-gradient-to-br from-neutral-700 to-transparent hover:bg-neutral-700`}
+      onClick={() => dispatch(toggleCompleted(todo.id))}
+    >
+      {deleteIcon}
     </button>
   );
 };

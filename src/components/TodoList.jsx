@@ -6,9 +6,11 @@ function TodoList() {
 
   return (
     <>
-      {todos.map((todo) => (
-        <Todo key={todo.id} todo={todo} />
-      ))}
+      <div className="flex flex-wrap justify-center gap-4">
+        {todos.map((todo) => (
+          <Todo key={todo.id} todo={todo} />
+        ))}
+      </div>
     </>
   );
 }

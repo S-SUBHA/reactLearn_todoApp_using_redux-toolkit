@@ -1,0 +1,41 @@
+.custom_css {
+  display: grid;
+  grid-template: repeat(6, 1fr) / repeat(6, 1fr);
+
+  border-radius: 4em;
+
+  margin: 2em;
+
+  height: 400px;
+  width: 400px;
+}
+
+.custom_css > textarea {
+  z-index: -10;
+
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+
+  padding: 4em;
+
+  font-size: large;
+  color: #fff;
+  background: linear-gradient(90deg, #222222, #444444, #666666);
+
+  border-radius: 5em;
+
+  scrollbar-width: 0;
+  resize: none;
+}
+
+.c_editBtn {
+  grid-area: -1/-1/-2/-2;
+}
+
+.c_deleteBtn {
+  grid-area: 1/-1/2/-2;
+}
+
+.c_completedBtn {
+  grid-area: 1/1/2/2;
+}
