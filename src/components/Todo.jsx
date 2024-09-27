@@ -6,7 +6,7 @@ import {
   DeleteButton,
   EditButton,
   SaveButton,
-} from "./TodoButtons.jsx";
+} from "./";
 
 import "./todo.css";
 

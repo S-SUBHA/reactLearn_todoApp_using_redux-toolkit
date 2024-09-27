@@ -17,24 +17,8 @@ function TodoForm() {
 
   return (
     <>
-      <section
-        className=""
-        style={{
-          display: "grid",
-          // gridTemplateColumns: "1fr repeat(1, min(100% - 20rem, 80rem)) 1fr",
-          gridTemplateColumns: "repeat(12, 1fr)",
-          // gap: "30px"
-        }}
-      >
-        <form
-          style={{
-            // gridColumnStart: 2,
-            gridColumn: "2 / -2",
-            display: "flex",
-          }}
-          className="m-4 mb-8"
-          onSubmit={(e) => createTodo(e)}
-        >
+      <section className="w-[90%] sm:w-4/5 my-6 mx-auto">
+        <form className="flex justify-center" onSubmit={(e) => createTodo(e)}>
           <input
             type="text"
             value={input}
@@ -44,8 +28,7 @@ function TodoForm() {
           />
           <button
             type="submit"
-            style={{}}
-            className="py-2 px-8 rounded-r-xl bg-amber-400 flex justify-center items-center hover:bg-amber-300"
+            className="py-2 px-8 rounded-r-xl bg-amber-400 hover:bg-amber-300 flex justify-center items-center"
           >
             {addIcon}
           </button>
