@@ -16,25 +16,23 @@ function TodoForm() {
   };
 
   return (
-    <>
-      <section className="w-[90%] sm:w-4/5 my-6 mx-auto">
-        <form className="flex justify-center" onSubmit={(e) => createTodo(e)}>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Add a todo..."
-            className="text-black flex-grow p-4 rounded-l-xl bg-amber-100"
-          />
-          <button
-            type="submit"
-            className="py-2 px-8 rounded-r-xl bg-amber-400 hover:bg-amber-300 flex justify-center items-center"
-          >
-            {addIcon}
-          </button>
-        </form>
-      </section>
-    </>
+    <div className="w-[90%] sm:w-4/5 my-6 mx-auto">
+      <form className="flex justify-center" onSubmit={(e) => createTodo(e)}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Add a todo..."
+          className="text-black flex-grow p-4 rounded-l-xl bg-amber-100"
+        />
+        <button
+          type="submit"
+          className="py-2 px-8 rounded-r-xl bg-amber-400 hover:bg-amber-300 flex justify-center items-center"
+        >
+          {addIcon}
+        </button>
+      </form>
+    </div>
   );
 }
 
